@@ -18,20 +18,19 @@ public class GET_listUsers {
     @Given("I set a base API request")
     public void iSetABaseAPIRequest() {
         RestAssured.baseURI = url;
-        RestAssured.basePath = "/users?page=2";
     }
 
-    @Given("I set a path for get list users")
+    @Given("I request get list users")
     public void iSetAPathForGetListUsers() {
         request = given().contentType(ContentType.JSON);
-        response = request.when().get();
+        response = request.when().get("/users?page=2");
 
     }
 
-    @Then("I validate the status code")
+    @Then("I validate the status code list users")
     public void iValidateTheStatusCode() {
-       response.then().statusCode(200).log().all();
-        System.out.println(response.getStatusCode());
+       response.then().statusCode(200);
+        System.out.println("Status code is : " +response.getStatusCode());
 
     }
 
