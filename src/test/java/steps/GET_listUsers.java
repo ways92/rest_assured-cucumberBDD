@@ -22,14 +22,17 @@ public class GET_listUsers {
 
     @Given("I request get list users")
     public void iSetAPathForGetListUsers() {
-        request = given().contentType(ContentType.JSON);
-        response = request.when().get("/users?page=2");
+        request = given().
+                        contentType(ContentType.JSON);
+        response = request.when().
+                                get("/users?page=2");
 
     }
 
     @Then("I validate the status code list users")
     public void iValidateTheStatusCode() {
-       response.then().statusCode(200);
+       response.then().
+                    statusCode(200);
         System.out.println("Status code is : " +response.getStatusCode());
 
     }
