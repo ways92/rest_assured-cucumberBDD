@@ -11,8 +11,8 @@ import static io.restassured.RestAssured.*;
 
 public class GET_listUsers {
 
-    private RequestSpecification request ;
-    private Response response;
+    RequestSpecification request ;
+    Response response;
     String url = "https://reqres.in/api";
 
     @Given("I set a base API request")
