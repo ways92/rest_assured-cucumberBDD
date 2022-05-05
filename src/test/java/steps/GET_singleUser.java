@@ -28,7 +28,9 @@ public class GET_singleUser {
     public void iValidateTheStatusCodeSingleUser() {
         response.then()
                     .statusCode(200);
-        System.out.println("status code is : "+response.getStatusCode());
+
+        int statusCode = response.getStatusCode();
+        System.out.println("status code is : "+statusCode);
     }
 
 }
