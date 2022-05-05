@@ -25,6 +25,7 @@ public class GET_listUnknown {
     public void iValidateTheStatusCodeListUnknown() {
         response.then().
                     statusCode(200);
-        System.out.println("status code is : "+response.getStatusCode());
+        int statusCode = response.getStatusCode();
+        System.out.println("status code is : "+statusCode);
     }
 }
