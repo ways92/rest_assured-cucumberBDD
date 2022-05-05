@@ -35,7 +35,9 @@ public class GET_listUsers {
     public void iValidateTheStatusCode() {
        response.then().
                     statusCode(200);
-        System.out.println("Status code is : " +response.getStatusCode());
+
+       int statusCode = response.getStatusCode();
+        System.out.println("Status code is : " +statusCode);
 
     }
 
