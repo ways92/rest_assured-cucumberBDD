@@ -41,6 +41,7 @@ public class PUT_user {
                             "name", equalTo(namePut),
                             "job", equalTo(jobPut)
                     )
+
                     .log().body()
                     .log().status();
 
