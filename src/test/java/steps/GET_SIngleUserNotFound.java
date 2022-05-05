@@ -10,8 +10,8 @@ import static io.restassured.RestAssured.given;
 
 public class GET_SIngleUserNotFound {
 
-    private RequestSpecification request;
-    private Response response;
+    RequestSpecification request;
+    Response response;
 
     @When("I request get single users not found")
     public void iRequestGetSingleUsersNotFound() {
@@ -23,6 +23,8 @@ public class GET_SIngleUserNotFound {
     @Then("I validate the status code single user not found")
     public void iValidateTheStatusCodeSingleUserNotFound() {
         response.then().statusCode(404);
-        System.out.println("status code is : "+response.getStatusCode());
+
+        int statusCode = response.getStatusCode();
+        System.out.println("status code is : "+statusCode);
     }
 }
