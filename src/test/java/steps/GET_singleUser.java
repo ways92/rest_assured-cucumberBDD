@@ -10,17 +10,17 @@ import static io.restassured.RestAssured.given;
 
 public class GET_singleUser {
 
-    private RequestSpecification request;
-    private Response response;
+    RequestSpecification request;
+    Response response;
 
     @Given("I request get single users")
     public void iRequestGetSingleUsers() {
-        request =
-                given()
+        request = given()
                         .contentType(ContentType.JSON);
+
         response = request
-                .when()
-                    .get("/users/2");
+                    .when()
+                        .get("/users/2");
 
     }
 

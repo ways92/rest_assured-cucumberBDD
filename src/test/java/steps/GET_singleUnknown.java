@@ -16,9 +16,9 @@ public class GET_singleUnknown {
 
     @When("I request get single unknown")
     public void iRequestGetSingleUnknown() {
-        request =
-                given()
+        request = given()
                         .contentType(ContentType.JSON);
+
         response = request
                 .when()
                     .get("/unknown/2");

@@ -15,12 +15,12 @@ public class DELETE_user {
 
     @When("I request delete users by id")
     public void iRequestDeleteUsersById() {
-        request =
-                given()
+        request = given()
                         .contentType(ContentType.JSON);
+
         response = request
                     .when()
-                    .delete("/users/71");
+                        .delete("/users/71");
     }
 
     @Then("I validate the status delete user")

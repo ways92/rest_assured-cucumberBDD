@@ -15,16 +15,19 @@ public class GET_listUnknown {
 
     @When("I request get list unknown")
     public void iRequestGetSingleUnknown() {
-        request = given().
-                        contentType(ContentType.JSON);
-        response = request.when().
-                                get("/unknown");
+        request = given()
+                    .contentType(ContentType.JSON);
+
+        response = request
+                .when()
+                    .get("/unknown");
     }
 
     @Then("I validate the status code list unknown")
     public void iValidateTheStatusCodeListUnknown() {
         response.then().
                     statusCode(200);
+
         int statusCode = response.getStatusCode();
         System.out.println("status code is : "+statusCode);
     }

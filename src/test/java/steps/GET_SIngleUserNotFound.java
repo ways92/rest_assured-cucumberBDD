@@ -15,15 +15,19 @@ public class GET_SIngleUserNotFound {
 
     @When("I request get single users not found")
     public void iRequestGetSingleUsersNotFound() {
-        request = given().contentType(ContentType.JSON);
-        response = request.get("/users/26");
+        request =
+                given()
+                        .contentType(ContentType.JSON);
+
+        response = request
+                .when()
+                    .get("/users/26");
 
     }
 
     @Then("I validate the status code single user not found")
     public void iValidateTheStatusCodeSingleUserNotFound() {
         response.then().statusCode(404);
-
         int statusCode = response.getStatusCode();
         System.out.println("status code is : "+statusCode);
     }

@@ -22,10 +22,12 @@ public class GET_listUsers {
 
     @Given("I request get list users")
     public void iSetAPathForGetListUsers() {
-        request = given().
-                        contentType(ContentType.JSON);
-        response = request.when().
-                                get("/users?page=2");
+        request = given()
+                    .contentType(ContentType.JSON);
+
+        response = request
+                .when()
+                    .get("/users?page=2");
 
     }
 
