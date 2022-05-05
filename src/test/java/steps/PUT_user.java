@@ -1,5 +1,6 @@
 package steps;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
@@ -7,37 +8,35 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.simple.JSONObject;
 
-import static org.hamcrest.Matchers.equalTo;
-
 import static io.restassured.RestAssured.given;
 
-public class POST_User {
+public class PUT_user {
 
     RequestSpecification request;
     Response response;
 
-    @When("I request post user")
-    public void iRequestPostUser() {
-
+    @When("I request put user")
+    public void iRequestPutUser() {
         JSONObject req = new JSONObject();
-        req.put("name", "Ways AL");
-        req.put("job", "Tukang");
+        req.put("name", "Ways");
+        req.put("job", "Marketing");
 
         request =
                 given()
                         .contentType(ContentType.JSON)
                         .body(req.toJSONString());
-
         response = request
                 .when()
-                    .post("/users");
+                    .put("/users/9");
     }
 
-    @Then("I validate the status code post user")
-    public void iValidateTheStatusCodePostUser() {
+    @Then("I validate the status code put user")
+    public void iValidateTheStatusCodePutUser() {
         response.then()
-                .statusCode(201)
-                .log().all();
-        System.out.println("status code is : "+response.getStatusCode());
+                    .statusCode(200)
+                    .log().all();
+
+        int statusCode = response.getStatusCode();
+        System.out.println("status code is : "+statusCode);
     }
 }

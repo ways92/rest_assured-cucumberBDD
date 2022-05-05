@@ -15,14 +15,19 @@ public class GET_singleUser {
 
     @Given("I request get single users")
     public void iRequestGetSingleUsers() {
-        request = given().contentType(ContentType.JSON);
-        response = request.when().get("/users/2");
+        request =
+                given()
+                        .contentType(ContentType.JSON);
+        response = request
+                .when()
+                    .get("/users/2");
 
     }
 
     @Then("I validate the status code single user")
     public void iValidateTheStatusCodeSingleUser() {
-        response.then().statusCode(200);
+        response.then()
+                    .statusCode(200);
         System.out.println("status code is : "+response.getStatusCode());
     }
 

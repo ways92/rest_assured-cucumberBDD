@@ -7,37 +7,34 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.simple.JSONObject;
 
-import static org.hamcrest.Matchers.equalTo;
-
 import static io.restassured.RestAssured.given;
 
-public class POST_User {
+public class PATCH_user {
 
     RequestSpecification request;
     Response response;
 
-    @When("I request post user")
-    public void iRequestPostUser() {
-
+    @When("I request patch user")
+    public void iRequestPatchUser() {
         JSONObject req = new JSONObject();
-        req.put("name", "Ways AL");
-        req.put("job", "Tukang");
+        req.put("job", "Sales");
 
         request =
                 given()
                         .contentType(ContentType.JSON)
                         .body(req.toJSONString());
-
         response = request
                 .when()
-                    .post("/users");
+                .patch("/users/9");
     }
 
-    @Then("I validate the status code post user")
-    public void iValidateTheStatusCodePostUser() {
+    @Then("I validate the status code patch user")
+    public void iValidateTheStatusCodePatchUser() {
         response.then()
-                .statusCode(201)
-                .log().all();
-        System.out.println("status code is : "+response.getStatusCode());
+                    .statusCode(200)
+                    .log().all();
+        int statusCode = response.getStatusCode();
+        System.out.println("status code is : "+statusCode);
+
     }
 }

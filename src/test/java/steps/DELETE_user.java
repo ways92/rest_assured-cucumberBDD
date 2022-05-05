@@ -7,29 +7,26 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 
-public class GET_singleUnknown {
+public class DELETE_user {
 
     RequestSpecification request;
     Response response;
 
-    @When("I request get single unknown")
-    public void iRequestGetSingleUnknown() {
+    @When("I request delete users by id")
+    public void iRequestDeleteUsersById() {
         request =
                 given()
                         .contentType(ContentType.JSON);
         response = request
-                .when()
-                    .get("/unknown/2");
+                    .when()
+                    .delete("/users/71");
     }
 
-    @Then("I validate the status code single unknown")
-    public void iValidateTheStatusCodeSingleUnknown() {
+    @Then("I validate the status delete user")
+    public void iValidateTheStatusDeleteUser() {
         response.then()
-                    .statusCode(200)
-                    .body("data.name", equalTo("fuchsia rose"))
-                    .log().all();
+                    .statusCode(204);
 
         int statusCode = response.getStatusCode();
         System.out.println("status code is : "+statusCode);
