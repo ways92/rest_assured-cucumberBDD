@@ -10,8 +10,8 @@ import static io.restassured.RestAssured.given;
 
 public class GET_singleUser {
 
-    private RequestSpecification request;
-    private Response response;
+    RequestSpecification request;
+    Response response;
 
     @Given("I request get single users")
     public void iRequestGetSingleUsers() {
@@ -28,7 +28,9 @@ public class GET_singleUser {
     public void iValidateTheStatusCodeSingleUser() {
         response.then()
                     .statusCode(200);
-        System.out.println("status code is : "+response.getStatusCode());
+
+        int statusCode = response.getStatusCode();
+        System.out.println("status code is : "+statusCode);
     }
 
 }
