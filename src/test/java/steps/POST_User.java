@@ -37,11 +37,11 @@ public class POST_User {
     @Then("I validate the status code post user")
     public void iValidateTheStatusCodePostUser() {
         response.then()
-                .statusCode(201)
-                .body("name", equalTo(namePost))
-                .body("job", equalTo(jobPost))
-                .log().body()
-                .log().status();
+                    .statusCode(201)
+                    .body("name", equalTo(namePost))
+                    .body("job", equalTo(jobPost))
+                    .log().body()
+                    .log().status();
 
         System.out.println("status code is : "+response.getStatusCode());
     }
